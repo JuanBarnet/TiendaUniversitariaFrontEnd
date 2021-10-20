@@ -1,0 +1,13 @@
+// Todas las importaciones de todos los sass de la aplicacion
+
+@import "bootstrap-css-only/css/bootstrap.min.css";
+@import "./colors.scss";
+
+// Layouts
+// @import "../layouts/BasicLayout/BasicLayout.scss";
+
+// Components
+@import "./login/login.scss";
+// @import "../components/Header/Header.scss";
+// @import "../components/TopBar/TopBar.scss";
+
