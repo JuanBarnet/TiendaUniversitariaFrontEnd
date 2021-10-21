@@ -46,7 +46,7 @@ const Home= ()=> {
             <div className="row justify-content-center">
                <div className="col-md-3">
                   <div className="card">
-                     <div className="card-header text-center azulPoto">
+                     <div className="card-header p-2 text-center">
                         Tienda Universitaria UCN
                      </div>
                      <div className="card-body p-1">
@@ -68,7 +68,7 @@ const Home= ()=> {
                                  </div>
                                  <input type="password" className="form-control" name="password" placeholder="Contraseña" value={password} onChange={handleChangeForm}/>
                               </div>
-                              <button type="submit" className="btn btn-block azulPoto">Entrar</button>
+                              <button type="submit" className="btn btn-primary btn-block">Entrar</button>
                               {
                                  alerta ? 
                                  <div className="alert alert-danger alert-dismissible fade show mt-3" role="alert">

@@ -3,6 +3,7 @@
    left: 0;
    top: 0;
    background: url("../../public/images/background-login.jpg") no-repeat center center fixed;
+   // background-color: white;
    -webkit-background-size: cover;
    -moz-background-size: cover;
    -o-background-size: cover;
@@ -19,8 +20,9 @@
 .azulPoto {
    box-shadow: 0 2px 4px rgba(0,0,0,.04);
    color: white;
-   background-color: #30638f;;
+   background-color: $Pantone_540_C;
 }
+
 .card {
    background: rgba(255,255,255,0.7);
    border-radius: 10px 10px 10px 10px;
