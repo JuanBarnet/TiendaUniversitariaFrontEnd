@@ -48,13 +48,12 @@ export const getUserAPI= async()=> {
 
 export const registerUserAPI= async(nombre: string, apellido: string, email: string, password: string, password_confirmed: string, rol: string)=> {
    let name = nombre + " " + apellido;
-   let rut = "5";
    const url= `${API_PATH}/register`;
    const params= {
       method: "POST",
       headers: {
          "Content-Type": "application/json",
-         // Authorization: `Bearer ${getToken()}`
+         Authorization: `Bearer ${getToken()}`
       },
       body: JSON.stringify({
          name: name,
@@ -62,7 +61,6 @@ export const registerUserAPI= async(nombre: string, apellido: string, email: str
          password: password,
          password_confirmed: password_confirmed,
          rol: rol,
-         rut: rut,
       })
    }
    const res= await fetch(url, params);

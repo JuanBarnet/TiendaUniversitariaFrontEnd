@@ -37,7 +37,7 @@ export const FormAddUsuario = (): JSX.Element => {
           'success'
         )
         .then(function() {
-          window.location.href = "/tienda/index";
+          window.location.href = "/Tienda/Perfil";
       });
 
       } else {
