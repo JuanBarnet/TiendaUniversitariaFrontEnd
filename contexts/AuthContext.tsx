@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { getUserAPI, loginAPI, logoutAPI } from '../api/user';
 
 import { Authenticator } from '../components/Authenticator'; 
+import { Loading } from "../components/Loading";
+import { Header2 } from "../components/layout/Header2";
 
 // const contextValue= {user, login, reLogin, logout, isAuthenticated};
 
@@ -35,9 +37,10 @@ export default function AuthProvider({children}:any){
 
    useEffect(()=> {
       const useEffectAsync= async()=> {
+         setReady(false);
          const token= getToken();
          if(token){
-            const resp= await reLogin();
+            await reLogin();
          }
          setReady(true);
       }
@@ -114,5 +117,5 @@ export default function AuthProvider({children}:any){
       </AuthContext.Provider>
    );
 
-   return ready ? tienda : <h1>Cargando...</h1>;
+   return ready ? tienda : <><Loading/><Header2></Header2></>;
 }

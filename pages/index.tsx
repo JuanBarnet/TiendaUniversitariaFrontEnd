@@ -4,6 +4,8 @@ import useAuth from '../hooks/useAuth';
 import styles from '../styles/Home.module.css';
 import { FaLock, FaUser, FaAt } from 'react-icons/fa';
 import Swal from 'sweetalert2'
+import { Loading } from "../components/Loading";
+import { Header2 } from "../components/layout/Header2";
 
 // fuente del form: https://bootsnipp.com/snippets/a6Pdk
 

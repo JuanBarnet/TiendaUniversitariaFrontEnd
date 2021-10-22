@@ -8,6 +8,9 @@ import "../styles/login/login.scss";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import '../styles/globals.scss'
 
+import { Loading } from "../components/Loading";
+
+
 function MyApp({ Component, pageProps }: AppProps) {
   return(
     <AuthProvider>

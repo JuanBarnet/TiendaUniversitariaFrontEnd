@@ -3,6 +3,7 @@ import useAuth from '../hooks/useAuth';
 import router, { useRouter } from 'next/router';
 import { Header } from "../components/layout/Header";
 import { Header2 } from "../components/layout/Header2";
+import { Loading } from "../components/Loading";
 
 export const Authenticator= ({children}: any)=> {
    console.log("Authentication");
@@ -33,4 +34,5 @@ export const Authenticator= ({children}: any)=> {
          </Header2>);
    }
    return null;
+   // return <><Loading/><Header2></Header2></>
 }
