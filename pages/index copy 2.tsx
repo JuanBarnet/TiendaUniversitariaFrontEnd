@@ -39,7 +39,7 @@ const Home= ()=> {
       }
    }
 
-   const pene= (
+   const tienda= (
       <>
       <div className="background-image"></div>
       <div className="container-fluid">
@@ -92,9 +92,9 @@ const Home= ()=> {
    );
 
    if(isAuthenticated()){
-      Router.replace("/pn");
+      Router.replace("/tienda");
    }else{
-      return pene;
+      return tienda;
    }
    return null;
 }

@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+#register_user {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  margin-top: 7.5vh;
+  margin-bottom: 5vh;
+  min-height: 70vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 15px;
+}
+
+#register_user2 {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  min-height: 70vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 15px;
+}
+
+#perfil {
+  width: 60%;
+
+  margin-left: auto;
+  margin-right: auto;
+  
+  margin-top: 15vh;
+  margin-bottom: 5vh;
+  min-height: 57vh;
+
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 15px;
+}
+
+#columna {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#logo {
+  margin-left: 100px;
+}
+
+#logo2 {
+  margin-left: 1px;
+}
+
+/* #button_cursor{
+  background:none;
+  border:none;
+  color:#FFF;
+  font-family:Verdana, Geneva, sans-serif;
+  cursor:pointer;
+} */
+
+#header {
+  height: 8vh;
+  background-color: #425563;
+  color: white;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+#header_principal {
+  background-color: #425563;
+  color: #425563;
+}
+
+#header_tittle {
+  display: flex;
+  justify-content: center;
+  padding-top: 2vh;
+  font-size: 30px;
+}
+#text {
+  font-size: 16px;
+
+}
+
+#espacio {
+  height: 5vh;
+}
+
+#prueba {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: green;
+}
+
+
+
+#boton_registrar{
+  width: 100%;
+  background-color: #425563 !important;
+  color: #FFF;
+  border-color: #425563 !important;
+  display: auto;
+  align-content: center;
+  justify-content: center;
+  margin-top: 7vh;
+}
+
+#contenedor_boton{
+  display: auto;
+  align-content: center;
+  justify-content: center;
+  width: 30%;
+}
+
+#contenedor_descripcion{
+  display: auto;
+  align-content: center;
+  justify-content: center;
+  width: 72.5%;
+  margin-top: 15px;
+}
+
+.form__error {
+  margin: 0.5rem;
+  color: red;
+  }
+
+#registrar{
+  width: 100%;
+}
+
+#select {
+  width: 30%;
+
+}
+
+#fila {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 9vh;
+}
+
+#fila2 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 4vh;
+}
+
+#fila_unidad {
+  width: 30%;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 35px;
+}
+
+/*Contenedores de izquierda y derecha para la vista de registros*/
+#register_user_left {
+  padding-top: 5vh;
+  width: 30%;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#register_user_right {
+  padding-top: 5vh;
+  width: 30%;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+#fila_p {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 9vh;
+}
+
+#fila2_p {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 2vh;
+}
+
+#fila_unidad_p {
+  width: 30%;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 5px;
+}
+
+/*Contenedores de izquierda y derecha para la vista de registros*/
+#register_user_left_p {
+  padding-top: 2vh;
+  width: 30%;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#register_user_right_p {
+  padding-top: 2vh;
+  width: 30%;
+  margin-left: 40px;
+  margin-right: 40px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Estilo de los enunciados de datos de usuario y contacto de emergencia*/
+#sub_theme {
+  font-size: 15px;
+  color: #000000;
+  margin-left: 5px;
+}
+
+/*Formularios para espaciados entre filas y también el máximo de los formularios*/
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-group-mini {
+  margin-bottom: 10px;
+}
+
+.form-group-max {
+  margin-bottom: 80%;
+}
+
+.form-control {
+  max-width: none;
+}
+
+.row-bottom-margin {
+  margin-bottom: 40px;
+}
+
+/*Espacio para las indicaciones de rut o pasaporte*/
+.space {
+  margin-left: 30%;
+}
+
+/*Selección personificada*/
+select {
+  background-image: linear-gradient(45deg, transparent 50%, #425563 60%), linear-gradient(135deg, #425563 40%, transparent 50%) !important;
+  background-position: calc(100% - 30px) 14px, calc(100% - 20px) 14px, 100% 0;
+  background-size: 10px 10px, 10px 10px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/*Colores de la página*/
+.perma_container {
+
+  background: rgb(10,97,188);
+  background: linear-gradient(90deg, rgba(10,97,188,1) 5%, rgba(63,179,236,1) 25%);
+  height: 70px;
+}
+
+#header_color {
+  color: #006ce5;
+}
+
+
+/*Botón de registrar*/
+.btn-primary {
+  width: 30%;
+  background-color: #006ce5 !important;
+  color: #FFF;
+  border-color: #3d8af7 !important;
+}

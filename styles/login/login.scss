@@ -17,17 +17,23 @@
    filter: blur(5px);
 } 
 
-.azulPoto {
-   box-shadow: 0 2px 4px rgba(0,0,0,.04);
-   color: white;
-   background-color: $Pantone_540_C;
-}
+#login_user {
+   margin-left: auto;
+   margin-right: auto;
+   
+   margin-top: 24vh;
+   display: flex;
+   align-content: center;
+   justify-content: center;
+   min-width: 400px;
+   padding-top: 0;
+   padding-left: 0;
+   padding-right: 0;
+   border-radius: 15px;
+   min-height: 400px;
+   background: #eaebf0;
+ }
 
-.card {
-   background: rgba(255,255,255,0.7);
-   border-radius: 10px 10px 10px 10px;
-   margin-top: 10%;
-}
 
 // .btn {
 //    font-weight: 700;

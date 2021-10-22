@@ -48,7 +48,7 @@ export default function AuthProvider({children}:any){
    //    if(isAuthenticated()){
    //       console.log(children.props.roles)
    //       // if(!children.props.roles.includes(user.rol)){
-   //       //    // Router.push("/pn");
+   //       //    // Router.push("/tienda");
    //       // }
    //    }else{
    //       // Router.push("/");
@@ -106,7 +106,7 @@ export default function AuthProvider({children}:any){
 
    const contextValue= {user, login, logout, reLogin, isAuthenticated};
    
-   const pene= (
+   const tienda= (
       <AuthContext.Provider value={contextValue}>
          <Authenticator>
             {children}
@@ -114,5 +114,5 @@ export default function AuthProvider({children}:any){
       </AuthContext.Provider>
    );
 
-   return ready ? pene : <h1>Cargando...</h1>;
+   return ready ? tienda : <h1>Cargando...</h1>;
 }

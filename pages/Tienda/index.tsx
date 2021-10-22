@@ -7,8 +7,8 @@ const Pn= ()=> {
    return(
       <>
       <HeaderPerfil />
-      <button onClick={(e)=>{Router.push('/pn/agregar-producto')}}>Agregar Producto (administrador)</button>
-      <button onClick={(e)=>{Router.push('/pn/realizar-venta')}}>Realizar Venta (vendedor)</button>
+      <button onClick={(e)=>{Router.push('/tienda/agregar-producto')}}>Agregar Producto (administrador)</button>
+      <button onClick={(e)=>{Router.push('/tienda/realizar-venta')}}>Realizar Venta (vendedor)</button>
       </>
    );
 }

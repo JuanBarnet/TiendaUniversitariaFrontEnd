@@ -42,5 +42,30 @@ export const getUserAPI= async()=> {
    }
    const res= await fetch(url, params);
    const data= await res.json();
+   console.log(data);
+   return data;
+}
+
+export const registerUserAPI= async(nombre: string, apellido: string, email: string, password: string, password_confirmed: string, rol: string)=> {
+   let name = nombre + " " + apellido;
+   let rut = "5";
+   const url= `${API_PATH}/register`;
+   const params= {
+      method: "POST",
+      headers: {
+         "Content-Type": "application/json",
+         // Authorization: `Bearer ${getToken()}`
+      },
+      body: JSON.stringify({
+         name: name,
+         email: email,
+         password: password,
+         password_confirmed: password_confirmed,
+         rol: rol,
+         rut: rut,
+      })
+   }
+   const res= await fetch(url, params);
+   const data= await res.json();
    return data;
 }
