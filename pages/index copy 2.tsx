@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router';
 import useAuth from '../hooks/useAuth';
 import styles from '../styles/Home.module.css';
+import { FaAddressBook, FaBox, FaBoxes } from "react-icons/fa"
 import { FaLock, FaUser, FaAt } from 'react-icons/fa';
-import Swal from 'sweetalert2'
-import { Loading } from "../components/Loading";
-import { Header2 } from "../components/layout/Header2";
 
 // fuente del form: https://bootsnipp.com/snippets/a6Pdk
 
@@ -38,44 +36,51 @@ const Home= ()=> {
       }else{
          console.log("invalid credentials");
          setAlerta(true);
-         Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Datos inválidos al iniciar sesión, intente de nuevo.'
-         })
       }
    }
 
-   const tienda = (
+   const tienda= (
       <>
-      {/* <div className="background-image"></div> */}
+      <div className="background-image"></div>
       <div className="container-fluid">
             <div className="row justify-content-center">
                <div className="col-md-3">
-                  <div className="card" id="login_user">
-                     <h5 className="card-header text-center" id="header" style={{height: 50}}>
+                  <div className="card">
+                     <div className="card-header p-2 text-center">
                         Tienda Universitaria UCN
-                     </h5>
+                     </div>
                      <div className="card-body p-1">
-                        <img id="profile-img" className="profile-img-card" src="/images/logo-ucn.png" sizes="100"/>
+                        <img id="profile-img" className="profile-img-card" src="/images/logo-ucn.png"/>
                         <form
                            onSubmit={handleSubmit}
                            autoComplete="off"
                         >
-                           <div className="form-group px-5">
-                              <div className="input-group mt-3">
+                           <div className="form-group px-3">
+                              <div className="input-group mb-2 mt-3">
                                  <div className="input-group-prepend">
                                     <span className="input-group-text"><FaUser/></span>
                                  </div>
-                                 <input type="text" className="form-control" name="email" placeholder="Correo electrónico" value={email} onChange={handleChangeForm} />
+                                 <input type="text" className="form-control" name="email" placeholder="Correo electronico" value={email} onChange={handleChangeForm} />
                               </div>
-                              <div className="input-group mt-3">
+                              <div className="input-group mb-2">
                                  <div className="input-group-prepend">
                                     <span className="input-group-text"><FaLock/></span>
                                  </div>
                                  <input type="password" className="form-control" name="password" placeholder="Contraseña" value={password} onChange={handleChangeForm}/>
                               </div>
-                              <button type="submit" className="btn btn-block mt-4" id="boton_registrar">Entrar</button>
+                              <button type="submit" className="btn btn-primary btn-block">Entrar</button>
+                              {
+                                 alerta ? 
+                                 <div className="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                                 <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                                 <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={(e)=> {setAlerta(false)}}>
+                                   <span aria-hidden="true">&times;</span>
+                                 </button>
+                                 </div> 
+                                 : 
+                                 null
+                              }
+                              
                            </div>
                         </form>
                      </div>
@@ -87,7 +92,7 @@ const Home= ()=> {
    );
 
    if(isAuthenticated()){
-      Router.replace("/Tienda/Perfil");
+      Router.replace("/tienda");
    }else{
       return tienda;
    }
