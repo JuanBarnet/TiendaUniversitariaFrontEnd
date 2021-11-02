@@ -19,9 +19,9 @@ export interface User {
 
 export interface AuthContextProps {
    user: any;
-   login: (email:string, password:string) => boolean;
+   login: (email:string, password:string) => Promise<boolean>;
    logout: ()=> void;
-   reLogin: () => boolean;
+   reLogin: () => Promise<boolean>;
    isAuthenticated: ()=> boolean;
 }
 
