@@ -9,6 +9,26 @@ import { Header2 } from "../components/layout/Header2";
 
 // fuente del form: https://bootsnipp.com/snippets/a6Pdk
 
+function useWindowDimensions() {
+   const [width, setWidth] = React.useState(window.innerWidth);
+   const [height, setHeight] = React.useState(window.innerHeight);
+ 
+   const updateWidthAndHeight = () => {
+     setWidth(window.innerWidth);
+     setHeight(window.innerHeight);
+   };
+ 
+   React.useEffect(() => {
+     window.addEventListener("resize", updateWidthAndHeight);
+     return () => window.removeEventListener("resize", updateWidthAndHeight);
+   });
+ 
+   return {
+     width,
+     height,
+   }
+ }
+
 const Home= ()=> {
    const Router = useRouter();
    const {user, login, isAuthenticated}= useAuth();
@@ -46,13 +66,13 @@ const Home= ()=> {
       }
    }
 
+   const { width, height } = useWindowDimensions()
+
    const tienda = (
       <>
       {/* <div className="background-image"></div> */}
-      <div className="container-fluid">
-            <div className="row justify-content-center">
-               <div className="col-md-3">
-                  <div className="card" id="login_user">
+      <div className="container-fluid" style={(height > 530)? {height: height - 100, display:'flex', alignItems:'center', justifyContent:'center'}: {height: 430, display:'flex', alignItems:'center', justifyContent:'center'}}>
+         <div className="card" id="login_user">
                      <h5 className="card-header text-center" id="header" style={{height: 50}}>
                         Tienda Universitaria UCN
                      </h5>
@@ -79,10 +99,8 @@ const Home= ()=> {
                            </div>
                         </form>
                      </div>
-                  </div>
-               </div>
-            </div>
-         </div>
+         </div>   
+      </div>
       </>
    );
 

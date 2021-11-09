@@ -5,7 +5,7 @@ export default yup.object().shape({
   .matches(/^[A-Za-záéíóúñÁÉÍÓÚ]+$/, "Deben ser caracteres alfabéticos"),
   apellido: yup.string().required("El apellido es obligatorio")
   .matches(/^[A-Za-záéíóúñÁÉÍÓÚ]+$/, "Deben ser caracteres alfabéticos"),
-  email: yup.string().required("El correo electrónico es obligatorio").email("Debe ser un correo válido"),
+  email: yup.string().required("El correo electrónico es obligatorio").email("Debe ser un correo válido").matches(/^([a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ!#$%&'*+/=?^_`{|}~:¡¿'´.-])+@(alumnos.ucn.cl|ucn.cl|ce.ucn.cl)$/, "Debe ser un correo institucional"),
   contrasenia: yup.string().required("La contraseña es obligatoria").min(8, "La contraseña debe tener mínimo 8 caracteres"),
   confirmContrasenia: yup.string().required("La contraseña es obligatoria")
   .oneOf([yup.ref("contrasenia"), null], "Las contraseñas deben coincidir"),

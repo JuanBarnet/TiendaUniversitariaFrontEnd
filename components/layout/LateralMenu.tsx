@@ -35,7 +35,7 @@ export const LateralMenu = ({ children }: any) => {
             id: "3",
             label: "Registrar Producto",
             icon: FaBox,
-            url: "/",
+            url: "/Tienda/RegistrarProducto",
             type: "link",
             icon2: AiOutlineQuestionCircle,
             texto: "Registra un nuevo producto al sistema.",

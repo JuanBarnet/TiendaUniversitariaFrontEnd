@@ -1,14 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+html,body{
+  overflow-x: hidden;
+  color:black;
+  font-family:'Opens Sans',helvetica;  
+  height:100%;
+  width:101%;
+  margin: 0px;
+  padding: 0px;
+}
 
 
-#register_user {
+#contenedor {
+  padding-left: 55px;
+  padding-right: 0px;
+}
+
+
+#register {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 0;
   
-  margin-top: 7.5vh;
-  margin-bottom: 5vh;
-  min-height: 70vh;
+  min-height: 600px;
+  max-height: 600px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border-radius: 15px;
+}
+
+#register_r {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+
+  min-height: 895px;
+  max-height: 895px;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -18,37 +51,118 @@
   border-radius: 15px;
 }
 
-#register_user2 {
+#register2 {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
   
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-  min-height: 70vh;
+  min-height: 720px;
+  max-height: 720px;
   display: flex;
   align-content: center;
   justify-content: center;
   padding-top: 0;
   padding-left: 0;
   padding-right: 0;
+  padding-bottom: 0;
   border-radius: 15px;
+  margin-bottom: 0px;
+}
+
+#register2_r {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  
+  min-height: 930px;
+  max-height: 930px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border-radius: 15px;
+}
+
+.user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+.user-details{
+  max-height: 300px;
+  overflow-y: scroll;
+}
+.user-details::-webkit-scrollbar{
+  width: 5px;
 }
 
 #perfil {
-  width: 60%;
+  width: 50%;
 
   margin-left: auto;
   margin-right: auto;
-  
-  margin-top: 15vh;
-  margin-bottom: 5vh;
-  min-height: 57vh;
+
+  height: 370px;
 
   padding-top: 0;
   padding-left: 0;
   padding-right: 0;
+  padding-bottom: 0;
   border-radius: 15px;
+  margin: 0 auto;
+}
+
+#perfil_responsive {
+  width: 70%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 500px;
+  margin-top: 50px;
+
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  border-radius: 15px;
+  margin-bottom: 0;
+}
+
+#fila_perfil {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#columna_perfil {
+  justify-content: center;
+  align-items: center;
+  height: 435px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#perfil_user {
+  width: 35%;
+  margin-left: 32px;
+  margin-right: 32px;
+  font-family: 'Roboto', sans-serif;
+}
+
+#perfil_user_responsive {
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+  margin: 0 auto;
 }
 
 #columna {
@@ -73,7 +187,7 @@
 } */
 
 #header {
-  height: 8vh;
+  height: 65px;
   background-color: #425563;
   color: white;
   border-top-left-radius: 15px;
@@ -83,30 +197,23 @@
 #header_principal {
   background-color: #425563;
   color: #425563;
+  height: 100px;
 }
 
 #header_tittle {
   display: flex;
   justify-content: center;
-  padding-top: 2vh;
+  padding-top: 16px;
   font-size: 30px;
 }
 #text {
   font-size: 16px;
-
 }
 
 #espacio {
   height: 5vh;
 }
 
-#prueba {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background-color: green;
-}
 
 
 
@@ -118,7 +225,17 @@
   display: auto;
   align-content: center;
   justify-content: center;
-  margin-top: 7vh;
+  margin-top: 56px;
+}
+
+#boton_registrar_r{
+  width: 100%;
+  background-color: #425563 !important;
+  color: #FFF;
+  border-color: #425563 !important;
+  display: auto;
+  align-content: center;
+  justify-content: center;
 }
 
 #contenedor_boton{
@@ -128,12 +245,21 @@
   width: 30%;
 }
 
+#contenedor_boton_responsive{
+  display: auto;
+  align-content: center;
+  justify-content: center;
+  width: 90%;
+}
+
 #contenedor_descripcion{
   display: auto;
   align-content: center;
   justify-content: center;
-  width: 72.5%;
-  margin-top: 15px;
+  width: 75%;
+  height: 120px;
+  margin-top: 35px;
+  padding: 0px;
 }
 
 .form__error {
@@ -153,82 +279,80 @@
 #fila {
   display: flex;
   justify-content: center;
-  align-content: center;
-  height: 9vh;
+  height:122px;
+}
+
+#col {
+  width: 100%;
+  height: 232px;
+  margin: 0 auto;
+}
+
+#col2 {
+  width: 100%;
+  height: 116px;
+  margin: 0 auto;
 }
 
 #fila2 {
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 4vh;
+  height: 32px;
 }
 
 #fila_unidad {
-  width: 30%;
-  margin-left: 40px;
-  margin-right: 40px;
-  padding-top: 35px;
+  width: 100%;
+  padding-top: 3px;
 }
 
 /*Contenedores de izquierda y derecha para la vista de registros*/
-#register_user_left {
-  padding-top: 5vh;
-  width: 30%;
-  margin-left: 40px;
-  margin-right: 40px;
+#register_user {
+  padding-top: 40px;
+  width: 35%;
+  margin-left: 32px;
+  margin-right: 32px;
   font-family: 'Roboto', sans-serif;
 }
 
-#register_user_right {
-  padding-top: 5vh;
-  width: 30%;
-  margin-left: 40px;
-  margin-right: 40px;
+#register_user_responsive {
+  width: 100%;
   font-family: 'Roboto', sans-serif;
-}
-
-
-
-#fila_p {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: 9vh;
+  height: 116px;
+  margin: 0;
 }
 
 #fila2_p {
   display: flex;
   justify-content: center;
   align-content: center;
-  height: 2vh;
+  height: 32px;
 }
 
 #fila_unidad_p {
-  width: 30%;
-  margin-left: 40px;
-  margin-right: 40px;
-  padding-top: 5px;
+  width: 100%;
+  padding-top: 3px;
 }
 
 /*Contenedores de izquierda y derecha para la vista de registros*/
-#register_user_left_p {
-  padding-top: 2vh;
-  width: 30%;
-  margin-left: 40px;
-  margin-right: 40px;
+#register_product {
+  padding-top: 40px;
+  width: 35%;
+  margin-left: 32px;
+  margin-right: 32px;
   font-family: 'Roboto', sans-serif;
 }
 
-#register_user_right_p {
-  padding-top: 2vh;
-  width: 30%;
-  margin-left: 40px;
-  margin-right: 40px;
+#register_product_responsive {
+  width: 100%;
   font-family: 'Roboto', sans-serif;
+  height: 116px;
+  margin: 0;
 }
 
-
+.col {
+  height: 560px;
+}
 
 
 
@@ -260,7 +384,7 @@
 }
 
 .form-control {
-  max-width: none;
+  width: 600px;
 }
 
 .row-bottom-margin {

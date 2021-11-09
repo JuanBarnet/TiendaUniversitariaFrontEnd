@@ -8,7 +8,7 @@ export const Header2 = ({ children }: any) => {
     <>
     <div className="container-fluid">
         <div className="row" id="header_principal">
-            <div className="header" id="header_principal">
+            <div className="header">
                 <div className="header__logos" id="logo">
                 <Image
                     src={"/images/logoucn.png" as any}
@@ -20,7 +20,7 @@ export const Header2 = ({ children }: any) => {
                 />
                 </div>
             </div>
-            <div className="header"  id="header_principal">
+            <div className="header">
                 <div className="header__logos" id="logo2">
                 <img
                     src={"/images/logofooter2.png" as any}

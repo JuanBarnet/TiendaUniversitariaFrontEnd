@@ -15,6 +15,27 @@ interface FormValues {
   confirmContrasenia: string;
   rol: string;
 }
+
+function useWindowDimensions() {
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const [height, setHeight] = React.useState(window.innerHeight);
+
+  const updateWidthAndHeight = () => {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("resize", updateWidthAndHeight);
+    return () => window.removeEventListener("resize", updateWidthAndHeight);
+  });
+
+  return {
+    width,
+    height,
+  }
+}
+
 export const FormAddUsuario = (): JSX.Element => {
   const initialValues: FormValues = {
     nombre: "",
@@ -31,11 +52,11 @@ export const FormAddUsuario = (): JSX.Element => {
     console.log(resp);
 
       if(resp.message == "Creado exitosamente"){
-        Swal.fire(
-          '¡Listo!',
-          'Se ha registrado correctamente.',
-          'success'
-        )
+        Swal.fire({
+          text: 'Se ha registrado correctamente',
+          title: values.nombre.charAt(0).toUpperCase() + values.nombre.slice(1) + " " + values.apellido.charAt(0).toUpperCase() + values.apellido.slice(1),
+          icon: 'success'
+        }) 
         .then(function() {
           window.location.href = "/Tienda/Perfil";
       });
@@ -43,8 +64,7 @@ export const FormAddUsuario = (): JSX.Element => {
       } else {
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
-          text: 'Datos inválidos al registrarse, intente de nuevo.'
+          text: 'El correo electrónico ya existe, intente nuevamente.'
         })
       }
     } catch(error: any){
@@ -52,99 +72,105 @@ export const FormAddUsuario = (): JSX.Element => {
     }
   }
 
+  const { width, height } = useWindowDimensions()
+  const limite = 1033;
+
   return (
     <>
-      <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
-        <Form id="registrar">
-          <div className="row" id="fila2">
-          </div>
-          <div className="row" id="fila">
-            <div id="register_user_left">  
-              <div className="col-12">
-                <label htmlFor="nombre" id="text">Nombre:</label>
-                <Field className="form-control" name="nombre" type="text" placeholder="Nombre"/>
-              </div>          
-            </div>
-            <div id="register_user_right">
-              <div className="col-12">
-                <label htmlFor="apellido" id="text">Apellido:</label>
-                <Field className="form-control" name="apellido" type="text" placeholder="Apellido"/>
-              </div>
-            </div>
-          </div>
-          <div className="row" id="fila2">
-            <div id="fila_unidad">  
-              <div className="col-12">
-                <ErrorMessage name="nombre" component="span" className="form__error"/>
-              </div>          
-            </div>
-            <div id="fila_unidad">
-              <div className="col-12">
-                <ErrorMessage name="apellido" component="span" className="form__error"/>
-              </div>
-            </div>
-          </div>
-          <div className="row" id="fila">
-            <div id="register_user_left">  
-              <div className="col-12">
-                <label htmlFor="email" id="text">Correo Electrónico:</label>
-                <Field className="form-control" name="email" type="text" placeholder="correo@gmail.com"/>
-              </div>          
-            </div>
-            <div id="register_user_right">
-              <div className="col-12">
-              <label id="text">Rol:</label>
-                <Field as="select" name="rol" className="form-control" placeholder="Seleccione un rol">
-                  <option>Seleccione un rol</option>
-                  <option value="administrador">Administrador</option>
-                  <option value="vendedor">Vendedor</option>
-                </Field>
-              </div>
-            </div>
-          </div>
-          <div className="row" id="fila2">
-            <div id="fila_unidad">  
-              <div className="col-12">
-                <ErrorMessage name="email" component="span" className="form__error"/>
-              </div>          
-            </div>
-            <div id="fila_unidad">
-              <div className="col-12">
-                <ErrorMessage name="rol" component="span" className="form__error"/>
-              </div>
-            </div>
-          </div>
-          <div className="row" id="fila">
-            <div id="register_user_left">     
-              <div className="col-12">
-                <label htmlFor="contrasenia" id="text">Contraseña:</label>
-                <Field className="form-control" name="contrasenia" type="password" placeholder="********"/>
-              </div>
-            </div>
-            <div id="register_user_right">
-              <div className="col-12">
-                <label htmlFor="confirmContrasenia" id="text">Confirmar Contraseña:</label>
-                <Field className="form-control" name="confirmContrasenia" type="password" placeholder="********"/>                   
-              </div>
-            </div>
-          </div>
-          <div className="row" id="fila2">
-            <div id="fila_unidad">  
-              <div className="col-12">
-                <ErrorMessage name="contrasenia" component="span" className="form__error"/>
-              </div>          
-            </div>
-            <div id="fila_unidad">
-              <div className="col-12">
-                <ErrorMessage name="confirmContrasenia" component="span" className="form__error"/>
-              </div>
-            </div>
-          </div>
-          <div className="container-fluid" id="contenedor_boton">
-            <button type="submit" id="boton_registrar" className="btn btn-primary btn-block btn-lg">Registrar</button>    
-          </div>
-        </Form>
-      </Formik>
+      <div className="container-fluid" id="contenedor" style={(width > limite)? (height > 730)? {height: height - 100, display:'flex', alignItems:'center'}: {height: 630, display:'flex', alignItems:'center'} : {} }>
+        <section className="jumbotron" id={(width > limite)? "register" : "register_r"}>
+          <div className="col" id="columna">
+            <div className="container-fluid" id="header">
+                <h3 id="header_tittle">
+                  Registrar Usuario
+                </h3>
+            </div> 
+            <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+              <Form id="registrar">
+                <div className="row" id="fila2">
+                </div>
+                  <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col"}>
+                    <div id={(width > limite)? "register_user" : "register_user_responsive"}>  
+                      <div className="col-12">
+                        <label htmlFor="nombre" id="text">Nombre:</label>
+                        <Field className="form-control" name="nombre" type="text" placeholder="Nombre"/> 
+                        <div id="fila_unidad">
+                          <div>
+                            <ErrorMessage name="nombre" component="span" className="form__error"/>
+                          </div>    
+                        </div>       
+                      </div>          
+                    </div>
+                    <div id={(width > limite)? "register_user" : "register_user_responsive"}>
+                      <div className="col-12">
+                        <label htmlFor="apellido" id="text">Apellido:</label>
+                        <Field className="form-control" name="apellido" type="text" placeholder="Apellido"/>
+                        <div id="fila_unidad">
+                          <div>
+                            <ErrorMessage name="apellido" component="span" className="form__error"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col"}>
+                    <div id={(width > limite)? "register_user" : "register_user_responsive"}>  
+                      <div className="col-12">
+                        <label htmlFor="email" id="text">Correo Electrónico:</label>
+                        <Field className="form-control" name="email" type="text" placeholder="correo@gmail.com"/>
+                        <div id="fila_unidad">  
+                          <div>
+                            <ErrorMessage name="email" component="span" className="form__error"/>
+                          </div>          
+                        </div>
+                      </div>          
+                    </div>
+                    <div id={(width > limite)? "register_user" : "register_user_responsive"}>
+                      <div className="col-12">
+                        <label id="text">Rol:</label>
+                        <Field as="select" name="rol" className="form-control" placeholder="Seleccione un rol">
+                          <option>Seleccione un rol</option>
+                          <option value="administrador">Administrador</option>
+                          <option value="vendedor">Vendedor</option>
+                        </Field>
+                        <div id="fila_unidad">
+                          <ErrorMessage name="rol" component="span" className="form__error"/>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col"}>
+                    <div id={(width > limite)? "register_user" : "register_user_responsive"}>     
+                      <div className="col-12">
+                        <label htmlFor="contrasenia" id="text">Contraseña:</label>
+                        <Field className="form-control" name="contrasenia" type="password" placeholder="********"/>
+                        <div id="fila_unidad">  
+                          <div>
+                            <ErrorMessage name="contrasenia" component="span" className="form__error"/>
+                          </div>          
+                        </div>
+                      </div>
+                    </div>
+                    <div id={(width > limite)? "register_user" : "register_user_responsive"}>
+                      <div className="col-12">
+                        <label htmlFor="confirmContrasenia" id="text">Confirmar Contraseña:</label>
+                        <Field className="form-control" name="confirmContrasenia" type="password" placeholder="********"/>  
+                        <div id="fila_unidad">
+                          <div>
+                            <ErrorMessage name="confirmContrasenia" component="span" className="form__error"/>
+                          </div>
+                        </div>                 
+                      </div>
+                    </div>
+                  </div>
+                  <div className="container-fluid" id={(width > limite)? "contenedor_boton" : "contenedor_boton_responsive"}>
+                    <button type="submit" id={(width > limite)? "boton_registrar" : "boton_registrar_r"} className="btn btn-primary btn-block btn-lg">Registrar</button>    
+                  </div>
+              </Form>
+            </Formik>
+          </div>         
+        </section>      
+      </div>
     </>
   );
 };
