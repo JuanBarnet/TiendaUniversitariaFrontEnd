@@ -2,7 +2,7 @@ import React from "react";
 import { SideBarMenu } from "./SideBarMenu";
 import { SideBarMenuItem, SideBarMenuCard } from "../../types/types";
 import { FaAddressBook, FaBox, FaBoxes, FaUserCircle } from "react-icons/fa"
-import { AiOutlineQuestionCircle } from "react-icons/ai"
+import { AiOutlineQuestionCircle, AiOutlineShop } from "react-icons/ai"
 import { GoSignOut, GoGraph, GoOrganization, GoListOrdered } from "react-icons/go"
 import { GrList } from "react-icons/gr"
 import profileImage from "./bill.jpeg";
@@ -43,16 +43,26 @@ export const LateralMenu = ({ children }: any) => {
         {
             rol: ["administrador", "vendedor"],
             id: "4",
-            label: "Productos",
-            icon: GoListOrdered,
+            label: "Venta de Productos",
+            icon: AiOutlineShop,
             url: "/",
+            type: "link",
+            icon2: AiOutlineQuestionCircle,
+            texto: "Permite realizar una venta.",
+        },  
+        {
+            rol: ["administrador", "vendedor"],
+            id: "5",
+            label: "Lista de Productos",
+            icon: GoListOrdered,
+            url: "/Tienda/ListaProductos",
             type: "link",
             icon2: AiOutlineQuestionCircle,
             texto: "Despliega el inventario y permite modificar el stock de produtos o realizar una venta.",
         },   
         {
             rol: ["administrador", "vendedor"],
-            id: "5",
+            id: "6",
             label: "Reportes",
             icon: GoGraph,
             url: "/",
@@ -62,7 +72,7 @@ export const LateralMenu = ({ children }: any) => {
         },
         {
             rol: ["administrador", "vendedor"],
-            id: "6",
+            id: "7",
             label: "Cerrar Sesión",
             icon: GoSignOut,
             url: "/",

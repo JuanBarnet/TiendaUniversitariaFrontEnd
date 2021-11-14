@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#lol {
+    color: #97999b;
+    color: #2d2926;
+    color: #c5299b;
+    color: #ffd100;
+    color: #fdda25;
+    color: #005eb8;
+    color: #00b5e2;
+    color: #007a33;
+    color: #009a44;
+    color: #da291c;
+    color: #b86125;
+    color: #003057;
+    color: #dbe2e9;
+    color: #7d9cc0;
+    color: #623412;
+    color: #ffaa4d;
+    color: #ff9e1b;
+    color: #647692;
+    color: #8246af;
+    color: #62b5e5;
+    color: #cda788;
+    color: #00b74f;
+    color: #a45248;
+    color: #425563;
+    color: #0097a9;
+    color: #a15a95;
+
+    color: rgba(0, 0, 0, 0.15);
+    color: #ed7092;
+    color: #69c0ad;
+    color: #e8ebee;
+    color: #007bff;
+    color: #0a56b3;
+    color: #bdcfdc;
+    color: #e0e0e0;
+}
+
+
+#contenedor_lista {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#header_lista {
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    color: white;
+}
+
+#elementos_lista {
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#fila_lista {
+    height: 100px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #e8ebee;
+    border-right: 2px solid #425563;
+    border-left: 2px solid #425563;
+    border-top: 1px solid #425563;
+    border-bottom: 1px solid #425563;
+    
+}
+
+#text_lista {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+}
+
+#boton_lista{
+    background-color: #003057 !important;
+    color: #FFF;
+    border-color: #003057 !important;
+  }

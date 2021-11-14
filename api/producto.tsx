@@ -17,9 +17,25 @@ export const getCategory= async(categoria:string)=> {
    return data;
 }
 
+export const getProductos= async()=> {
+   const url= `${API_PATH}/productos`;
+   const params= {
+      method: "GET",
+      headers: {
+         "Content-Type": "application/json",
+         Authorization: `Bearer ${getToken()}`
+      },
+   }
+   const res= await fetch(url, params);
+   const data= await res.json();
+   console.log(data);
+   return data;
+}
+
 export const registerProductAPI= async(nombre: string, descripcion: string,  precio: string, stockActual: string, stockCritico: string, categoria: string)=> {
-    var producto = nombre[0]; // Obtiene el primer caracter del produco
-    var producto2 = nombre[1]; // Obtiene el segundo caracter del producto
+   var capitalizeNombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+    var producto = capitalizeNombre[0]; // Obtiene el primer caracter del produco
+    var producto2 = capitalizeNombre[1]; // Obtiene el segundo caracter del producto
     
     // Obtiene el correlativo de la categoria buscada
     const numeroCorrelativo = await getCategory(categoria);
@@ -71,7 +87,7 @@ export const registerProductAPI= async(nombre: string, descripcion: string,  pre
           Authorization: `Bearer ${getToken()}`
        },
        body: JSON.stringify({
-          nombre: nombre,
+          nombre: capitalizeNombre,
           descripcion: descripcion,
           codigo_interno: codigoInterno,
           codigo_barra: codigoBarra,

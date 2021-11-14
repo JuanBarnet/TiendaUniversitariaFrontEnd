@@ -7,13 +7,14 @@ export const Header2 = ({ children }: any) => {
   return (
     <>
     <div className="container-fluid">
+      <div className="col" style={{height:'100px'}}>
         <div className="row" id="header_principal">
             <div className="header">
-                <div className="header__logos" id="logo">
+                <div className="header__logos" style={{marginLeft:'10px', marginTop:'10px'}}>
                 <Image
-                    src={"/images/logoucn.png" as any}
-                    width="300"
-                    height="100"
+                    src={"/images/logo.png" as any}
+                    width="90"
+                    height="90"
                     objectFit="contain"
                     alt="Logo UCN"
                     margin-right="100px"
@@ -21,11 +22,11 @@ export const Header2 = ({ children }: any) => {
                 </div>
             </div>
             <div className="header">
-                <div className="header__logos" id="logo2">
+                <div className="header__logos" style={{marginLeft:'10px', marginTop:'10px'}}>
                 <img
-                    src={"/images/logofooter2.png" as any}
+                    src={"/images/logofooter4.png" as any}
                     width="auto"
-                    height="106"
+                    height="90"
                     alt="Logo UCN"  
                     object-fit= "contain"
 
@@ -33,6 +34,8 @@ export const Header2 = ({ children }: any) => {
                 </div>
             </div>
         </div>
+        <hr style={{backgroundColor:'#dcdcdc'}}></hr>
+      </div>
     </div>
     <main >
       {children}

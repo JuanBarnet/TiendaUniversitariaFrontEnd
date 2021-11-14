@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-html,body{
-  overflow-x: hidden;
-  color:black;
-  font-family:'Opens Sans',helvetica;  
-  height:100%;
-  width:101%;
-  margin: 0px;
-  padding: 0px;
-}
+
 
 
 #contenedor {
@@ -171,11 +163,11 @@ html,body{
 }
 
 #logo {
-  margin-left: 100px;
+  margin-left: 75px;
 }
 
 #logo2 {
-  margin-left: 1px;
+  margin-left: 10px;
 }
 
 /* #button_cursor{
@@ -195,8 +187,8 @@ html,body{
 }
 
 #header_principal {
-  background-color: #425563;
-  color: #425563;
+  background-color: white;
+  color: white;
   height: 100px;
 }
 
@@ -219,9 +211,9 @@ html,body{
 
 #boton_registrar{
   width: 100%;
-  background-color: #425563 !important;
+  background-color: #003057 !important;
   color: #FFF;
-  border-color: #425563 !important;
+  border-color: #003057 !important;
   display: auto;
   align-content: center;
   justify-content: center;
@@ -230,9 +222,9 @@ html,body{
 
 #boton_registrar_r{
   width: 100%;
-  background-color: #425563 !important;
+  background-color: #003057 !important;
   color: #FFF;
-  border-color: #425563 !important;
+  border-color: #003057 !important;
   display: auto;
   align-content: center;
   justify-content: center;
