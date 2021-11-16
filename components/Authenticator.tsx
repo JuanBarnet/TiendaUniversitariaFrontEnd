@@ -6,8 +6,6 @@ import { Header2 } from "../components/layout/Header2";
 import { Loading } from "../components/Loading";
 
 export const Authenticator= ({children}: any)=> {
-   console.log("Authentication");
-
    const {user, isAuthenticated}= useAuth(); 
    const Router = useRouter();
 

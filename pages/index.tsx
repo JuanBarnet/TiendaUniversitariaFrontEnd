@@ -9,7 +9,7 @@ import { Header2 } from "../components/layout/Header2";
 
 // fuente del form: https://bootsnipp.com/snippets/a6Pdk
 
-const Home= ()=> {
+const Home= ({functionTest}:any)=> {
    const Router = useRouter();
    const {user, login, isAuthenticated}= useAuth();
    const [alerta, setAlerta]= useState(false);
@@ -30,6 +30,8 @@ const Home= ()=> {
 
    const handleSubmit= async (e:any)=> {
       e.preventDefault();
+      functionTest({email, password});
+
       const resp= await login(email, password);
       
       if(resp){
