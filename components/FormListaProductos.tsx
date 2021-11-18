@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from "react";
-import { getProductos } from "../api/producto";
+import { getProductos, getProductosEspecifico } from "../api/producto";
 import { BsSearch } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { ImCancelCircle } from "react-icons/im";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import {  TextField, IconButton } from '@material-ui/core';
 import { IconType } from "react-icons";
+import { useRouter } from 'next/router';
 
 function useWindowDimensions() {
     const [width, setWidth] = React.useState(window.innerWidth);
@@ -102,10 +103,18 @@ export const FormListaProductos = () => {
         console.log("acceder");
     }
 
-    var productoModificar = {nombre:"", codigo_interno:"", codigo_barra:"", precio:"", cantidad:"", stock_critico:""};
-    function handleModificar(i: number){
-        productoModificar = mainProductShown[i];
-        console.log(productoModificar.nombre);
+    //const productoModificar = {nombre:"", codigo_interno:"", codigo_barra:"", precio:"", cantidad:"", stock_critico:""};
+    const Router = useRouter();
+    //const id = "";
+    async function handleModificar(i: number){
+        const productoModificar = mainProductShown[i];
+        var id = productoModificar.codigo_interno;
+        
+        const producto = await getProductosEspecifico(id);
+        
+        Router.push(`/Tienda/ModificarProductos/${producto.producto.codigo_interno}`);
+        
+        //console.log(productoModificar.nombre);
     }
 
     var productoVenta = {nombre:"", codigo_interno:"", codigo_barra:"", precio:"", cantidad:"", stock_critico:""};
