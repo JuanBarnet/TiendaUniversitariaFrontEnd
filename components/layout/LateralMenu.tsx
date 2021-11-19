@@ -65,7 +65,7 @@ export const LateralMenu = ({ children }: any) => {
             id: "6",
             label: "Reportes",
             icon: GoGraph,
-            url: "/",
+            url: "/Tienda/Reporte",
             type: "link",
             icon2: AiOutlineQuestionCircle,
             texto: "Muestra diversos tipos de reportes.",

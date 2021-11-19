@@ -31,6 +31,48 @@ export const getProductos= async()=> {
    console.log(data);
    return data;
 }
+export const getProducto= async(id:string)=> {
+   const url= `${API_PATH}/productos/${id}`;
+   const params= {
+      method: "GET",
+      headers: {
+         "Content-Type": "application/json",
+         Authorization: `Bearer ${getToken()}`
+      },
+   }
+   const res= await fetch(url, params);
+   const data= await res.json();
+   return data;
+}
+
+export const getVentas= async()=> {
+   const url= `${API_PATH}/ventas`;
+   const params= {
+      method: "GET",
+      headers: {
+         "Content-Type": "application/json",
+         Authorization: `Bearer ${getToken()}`
+      },
+   }
+   const res= await fetch(url, params);
+   const data= await res.json();
+   console.log(data);
+   return data;
+}
+export const getEntradas= async()=> {
+   const url= `${API_PATH}/entradas`;
+   const params= {
+      method: "GET",
+      headers: {
+         "Content-Type": "application/json",
+         Authorization: `Bearer ${getToken()}`
+      },
+   }
+   const res= await fetch(url, params);
+   const data= await res.json();
+   console.log(data);
+   return data;
+}
 
 export const registerProductAPI= async(nombre: string, descripcion: string,  precio: string, stockActual: string, stockCritico: string, categoria: string)=> {
    var capitalizeNombre = nombre.charAt(0).toUpperCase() + nombre.slice(1);

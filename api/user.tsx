@@ -45,6 +45,19 @@ export const getUserAPI= async()=> {
    console.log(data);
    return data;
 }
+export const getUserId= async(id: string)=> {
+   const url= `${API_PATH}/users/${id}`;
+   const params= {
+      method: "GET",
+      headers: {
+         "Content-Type": "application/json",
+         Authorization: `Bearer ${getToken()}`
+      },
+   }
+   const res= await fetch(url, params);
+   const data= await res.json();
+   return data;
+}
 
 export const registerUserAPI= async(nombre: string, apellido: string, email: string, password: string, password_confirmed: string, rol: string)=> {
    let name = nombre + " " + apellido;
