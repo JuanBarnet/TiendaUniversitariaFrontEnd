@@ -59,7 +59,7 @@ export const FormAddProducto = (): JSX.Element => {
           icon: 'success'
         })
         .then(function() {
-          window.location.href = "/Tienda/Perfil";
+          window.location.href = "/Tienda/ListaProductos";
       });
 
       } else {
