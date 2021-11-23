@@ -6,8 +6,8 @@ import { ImCancelCircle } from "react-icons/im";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import {  TextField, IconButton } from '@material-ui/core';
 import { IconType } from "react-icons";
-import { useRouter } from 'next/router';
-
+import router, { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 function useWindowDimensions() {
     const [width, setWidth] = React.useState(window.innerWidth);
     const [height, setHeight] = React.useState(window.innerHeight);
@@ -29,6 +29,8 @@ function useWindowDimensions() {
 }
 
 export const FormListaProductos = () => {
+
+    const Router = useRouter();
 
     const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -100,11 +102,10 @@ export const FormListaProductos = () => {
     }
 
     const handleAccederVenta = () => {
-        console.log("acceder");
+        Router.push("/Tienda/RealizarVenta");
     }
 
     //const productoModificar = {nombre:"", codigo_interno:"", codigo_barra:"", precio:"", cantidad:"", stock_critico:""};
-    const Router = useRouter();
     //const id = "";
     async function handleModificar(i: number){
         const productoModificar = mainProductShown[i];
@@ -120,7 +121,43 @@ export const FormListaProductos = () => {
     var productoVenta = {nombre:"", codigo_interno:"", codigo_barra:"", precio:"", cantidad:"", stock_critico:""};
     function handleVenta(i: number){
         productoVenta = mainProductShown[i];
-        console.log(productoVenta.nombre);
+
+        if(parseInt(productoVenta.cantidad)>0){
+            const infoProducto = {
+                codigo_interno: productoVenta.codigo_interno,
+                nombre: productoVenta.nombre,
+                cantidad: 1, 
+                cantidad_actual: productoVenta.cantidad, 
+                stock_critico: productoVenta.stock_critico
+            };
+
+            if(sessionStorage.getItem(`Producto ${productoVenta.codigo_interno}`) === null){
+                sessionStorage.setItem(`Producto ${productoVenta.codigo_interno}`, JSON.stringify(infoProducto));  
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Exito',
+                    text: 'El producto se agrego a la venta.'
+                });
+            }
+            else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Producto encontrado',
+                    text: 'El producto ya esta agregado en el carro.'
+                });
+            }
+
+        }
+
+        else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Producto sin stock',
+                text: 'El producto tiene stock 0.'
+            });
+        }
+
+        console.log(productoVenta);
     }
 
     
