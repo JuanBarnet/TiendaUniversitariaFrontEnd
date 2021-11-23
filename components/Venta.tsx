@@ -113,12 +113,12 @@ export const Venta = (): JSX.Element =>{
 
         Swal.fire({
             title: '¿Seguro?',
-            text: `¿Esta seguro que quiere eliminar el producto ${productos[i].nombre}?`,
+            text: `¿Está seguro que quiere eliminar el producto ${productos[i].nombre}?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '¡Si, eliminalo!',
+            confirmButtonText: '¡Sí, elíminalo!',
             cancelButtonText: 'No',
           }).then((result) => {
             if (result.isConfirmed) {
@@ -127,8 +127,8 @@ export const Venta = (): JSX.Element =>{
                 setProductos(productosSinEliminar);
                 setProductoEliminado(productos[i]);
                 Swal.fire(
-                    'Eliminacion exitosa',
-                    'El producto ha sido eliminado de la seleccion.',
+                    'Eliminación exitosa',
+                    'El producto ha sido eliminado de la selección.',
                     'success'
                 )
             }

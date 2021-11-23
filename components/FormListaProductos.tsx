@@ -136,7 +136,7 @@ export const FormListaProductos = () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Exito',
-                    text: 'El producto se agrego a la venta.'
+                    text: 'El producto se agregó a la venta.'
                 });
             }
             else{

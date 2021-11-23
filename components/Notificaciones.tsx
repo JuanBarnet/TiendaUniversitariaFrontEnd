@@ -43,18 +43,18 @@ export const Notificaciones = () =>{
     function eliminarNotificacion(id:any){
         Swal.fire({
             title: '¿Eliminar Notificación?',
-            text: `¿Esta seguro que quiere eliminar la notificación?`,
+            text: `¿Está seguro que quiere eliminar la notificación?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: '¡Si, eliminalo!',
+            confirmButtonText: '¡Sí, elíminalo!',
             cancelButtonText: 'No',
           }).then((result) => {
             if (result.isConfirmed) {
                 deleteNotificaciones(id);
                 Swal.fire({
-                    title: 'Eliminacion exitosa',
+                    title: 'Eliminación exitosa',
                     text:  'La notificación ha sido eliminada de su bandeja.',
                     icon:  'success',
                     willClose: () => {
