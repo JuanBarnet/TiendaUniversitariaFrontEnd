@@ -73,11 +73,11 @@ git init
 ```
 4. Crear conexión con el repositorio:
 ```
-git remote add origin [link de la WebApp (https://github.com/sebadg34/ProyectoPlataformasII-WebApp) o la WebApi (https://github.com/sebadg34/ProyectoPlataformas_II_WebAPI)]
+git remote add origin https://github.com/JavCordero/TiendaUniversitariaFrontEnd
 ```
 5. Finalmente, hacer pull al master:
 ```
-git pull origin master
+git pull origin main
 ```
 
 ### Instrucciones:
