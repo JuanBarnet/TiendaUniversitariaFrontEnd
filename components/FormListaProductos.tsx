@@ -210,12 +210,12 @@ export const FormListaProductos = () => {
                 </div>
                 <div id="elementos_lista" style={{width:'180px'}}>
                     <button type="submit" value={i}  onClick={(e) => {handleModificar(parseInt((e.target as HTMLButtonElement).value));}} className="btn btn-primary btn-block btn-lg" id="boton_lista" style={{height:'40px', width:'130px', display:'flex', alignItems:'center', justifyContent:'center'}}>                      
-                        <FaEdit style={{pointerEvents:'none'}}/>       
+                        <FaEdit id="editar" style={{pointerEvents:'none'}}/>       
                     </button>
                 </div>
                 <div id="elementos_lista" style={{width:'178px'}}>
                     <button type="submit" value={i} onClick={(e) => {handleVenta(parseInt((e.target as HTMLButtonElement).value));}} className="btn btn-primary btn-block btn-lg" id="boton_lista" style={{height:'40px', width:'130px', display:'flex', alignItems:'center', justifyContent:'center'}}>     
-                        <AiOutlineShoppingCart style={{pointerEvents:'none'}}/>
+                        <AiOutlineShoppingCart id="editar" style={{pointerEvents:'none'}}/>
                     </button>
                 </div>
             </div>
@@ -245,6 +245,7 @@ export const FormListaProductos = () => {
                             <div style={width > limite? {width:'300px', height:'50px', display:'flex', alignItems:'center', justifyContent:'center'}:{width:'100%', height:'50px', display:'flex', alignItems:'center', justifyContent:'center'}}>
                                 {width > limite &&
                                     <TextField
+                                        name="buscador"
                                         className="form-control"
                                         variant="standard"
                                         placeholder=" Buscar nombre o código interno..."

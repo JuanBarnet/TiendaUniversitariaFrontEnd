@@ -39,7 +39,7 @@ function useWindowDimensions() {
   }
 }
 
-export const FormModificarProductos = (): JSX.Element => {
+export const FormModificarProductos = ({functionTest}:any): JSX.Element => {
   const initialValues: FormValues = {
     nombre: "",
     precio: "",
@@ -53,6 +53,9 @@ export const FormModificarProductos = (): JSX.Element => {
   console.log(aumento+" ----"+rebajaMerma) */
 
   const onSubmit = async (values: FormValues) => {
+    if(functionTest != undefined){
+      functionTest(values);
+    }
     try{
       const resp = await updateProducto(String(codigo_interno),String(rebajaMerma),String(aumento));
       console.log(resp);
@@ -105,20 +108,21 @@ export const FormModificarProductos = (): JSX.Element => {
   const router = useRouter();
 
   const fetchProducts = async () => {
-    const codigoInterno = String(router.query.codigo_interno);
-    const data = await getProductosEspecifico(codigoInterno);
-    setNombre(data.producto.nombre);
-    setStockActual(data.producto.cantidad);
-    setDescripcion(data.producto.descripcion);
-    setPrecio(data.producto.precio);
-    setStockCritico(data.producto.stock_critico);
-    setCodigoBarra(data.producto.codigo_barra);
-    setCodigoInterno(data.producto.codigo_interno);
-
+    if(functionTest == undefined){
+      const codigoInterno = String(router.query.codigo_interno);
+      const data = await getProductosEspecifico(codigoInterno);
+      setNombre(data.producto.nombre);
+      setStockActual(data.producto.cantidad);
+      setDescripcion(data.producto.descripcion);
+      setPrecio(data.producto.precio);
+      setStockCritico(data.producto.stock_critico);
+      setCodigoBarra(data.producto.codigo_barra);
+      setCodigoInterno(data.producto.codigo_interno);
+    }
   }
   
   useEffect(() => {
-    fetchProducts()
+    fetchProducts();
   }, []);
 
   const [rebajaMerma,setRebajaMerma] = useState(0);
@@ -143,6 +147,7 @@ export const FormModificarProductos = (): JSX.Element => {
                 </h3>
             </div> 
             <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+            {/* <Formik initialValues={initialValues} onSubmit={onSubmit}> */}
               <Form id="registrar">
                 <div className="row" id={(width > limite)? "" : "fila2_p"}  style={{height: '40px'}}>
                 </div>
@@ -150,13 +155,13 @@ export const FormModificarProductos = (): JSX.Element => {
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>  
                     <div className="col-12">
                       <label htmlFor="nombre" id="text">Nombre:</label>
-                      <input className="form-control rounded-pill" type="text" placeholder={nombre} readOnly></input>
+                      <input id="nombre" name="nombre" className="form-control rounded-pill" type="text" placeholder={nombre} readOnly></input>
                     </div>          
                   </div>
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>
                     <div className="col-12">
                     <label htmlFor="precio" id="text">Precio:</label>
-                    <input className="form-control rounded-pill" type="text" placeholder={precio} readOnly></input>
+                    <input id="precio" name="precio" className="form-control rounded-pill" type="text" placeholder={precio} readOnly></input>
                     </div>
                   </div>
                 </div>
@@ -164,13 +169,13 @@ export const FormModificarProductos = (): JSX.Element => {
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}} >  
                     <div className="col-12">
                       <label htmlFor="stockActual" id="text">Stock Actual:</label>
-                      <input className="form-control rounded-pill" type="text" placeholder={stock_actual} readOnly></input>
+                      <input id="stockActual" name="stockActual" className="form-control rounded-pill" type="text" placeholder={stock_actual} readOnly></input>
                     </div>          
                   </div>
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>
                     <div className="col-12">
                       <label htmlFor="stockCritico" id="text">Stock Crítico:</label>
-                      <input className="form-control rounded-pill" type="text" placeholder={stock_critico} readOnly></input>
+                      <input id="stockCritico" name="stockCritico" className="form-control rounded-pill" type="text" placeholder={stock_critico} readOnly></input>
                     </div>
                   </div>
                 </div>
@@ -178,13 +183,13 @@ export const FormModificarProductos = (): JSX.Element => {
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>     
                     <div className="col-12">
                       <label htmlFor="codigoBarras" id="text">Código de Barras:</label>
-                      <input className="form-control rounded-pill" type="text" placeholder={codigo_barra} readOnly></input>
+                      <input id="codigoBarras" name="codigoBarras" className="form-control rounded-pill" type="text" placeholder={codigo_barra} readOnly></input>
                     </div>
                   </div>
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>
                     <div className="col-12">
                       <label htmlFor="codigoInterno" id="text">Código Interno:</label>
-                      <input className="form-control rounded-pill" type="text" placeholder={codigo_interno} readOnly></input>
+                      <input id="codigoInterno" name="codigoInterno" className="form-control rounded-pill" type="text" placeholder={codigo_interno} readOnly></input>
                     </div>
                   </div>
                 </div>
@@ -192,13 +197,13 @@ export const FormModificarProductos = (): JSX.Element => {
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>     
                     <div className="col-12">
                       <label htmlFor="descripcion" id="text">Descripción:</label>
-                      <input className="form-control rounded-pill" type="text" placeholder={descripcion} readOnly></input>
+                      <input id="descripcion" name="descripcion" className="form-control rounded-pill" type="text" placeholder={descripcion} readOnly></input>
                     </div>
                   </div>
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>
                     <div className="col-12">
-                    <label id="text">Rebajar/Aumentar stock:</label>
-                    <select className="form-control rounded-pill" id="exampleFormControlSelect1" onChange={(e) => {handleSelect(((e.target).value));}} >
+                    <label htmlFor="exampleFormControlSelect1" id="text">Rebajar/Aumentar stock:</label>
+                    <select className="form-control rounded-pill" name="exampleFormControlSelect1" id="exampleFormControlSelect1" onChange={(e) => {handleSelect(((e.target).value));}} >
                         <option selected>Seleccione una opción</option>
                         <option value="1">Rebajar por merma</option>
                         <option value="2">Aumentar cantidad</option>
@@ -220,6 +225,8 @@ export const FormModificarProductos = (): JSX.Element => {
                         <div className="col-12">
                           <label htmlFor="rebajaMerma" id="text">Ingrese la cantidad por rebajar:</label>
                           <input
+                            id="rebajaMerma"
+                            name="rebajaMerma"
                             className="form-control rounded-pill"
                             //variant="outlined"
                             placeholder="0"
@@ -239,6 +246,8 @@ export const FormModificarProductos = (): JSX.Element => {
                         <div className="col-12">
                         <label htmlFor="aumento" id="text">Ingrese la cantidad por aumentar:</label>
                         <input
+                            id="aumento"
+                            name="aumento"
                             className="form-control rounded-pill"
                             //variant="outlined"
                             placeholder="0"
