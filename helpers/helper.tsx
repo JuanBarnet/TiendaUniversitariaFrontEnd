@@ -4,3 +4,7 @@ export function stringToDateToString(fechaString:string) {
     const stringFecha = `${fechaDate.getDate()} de ${mesesNombre[fechaDate.getMonth()]} del ${fechaDate.getFullYear()}`;
     return stringFecha;
 }
+
+export function mayusculaPrimeraLetra(string:string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
