@@ -27,11 +27,13 @@ export async function getStaticProps() {
 }
 
 export const getStaticPaths = async () => {
-  const res = await getIdentificacion();
+  //const res = await getIdentificacion();
 
-  const paths = res.productos.map((producto:any) =>{
+  const res = ["001-0001", "001-0002"];
+
+  const paths = res.map((producto:any) =>{
     return{
-      params: {codigo_interno: producto.codigo_interno.toString()}
+      params: {codigo_interno: producto.toString()}
     }
   })
 
