@@ -7,6 +7,8 @@ import { Authenticator } from '../components/Authenticator';
 import { Loading } from "../components/Loading";
 import { Header2 } from "../components/layout/Header2";
 
+import { getProductos } from "../api/producto";
+
 // const contextValue= {user, login, reLogin, logout, isAuthenticated};
 
 //definir la información

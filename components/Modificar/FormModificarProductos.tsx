@@ -110,6 +110,8 @@ export const FormModificarProductos = (): JSX.Element => {
   const fetchProducts = async () => {
     const codigoInterno = String(router.query.codigo_interno);
     const data = await getProductosEspecifico(codigoInterno);
+    console.log(data);
+    if(data.error != "Producto no encontrado"){
     setNombre(data.producto.nombre);
     setStockActual(data.producto.cantidad);
     setDescripcion(data.producto.descripcion);
@@ -117,6 +119,7 @@ export const FormModificarProductos = (): JSX.Element => {
     setStockCritico(data.producto.stock_critico);
     setCodigoBarra(data.producto.codigo_barra);
     setCodigoInterno(data.producto.codigo_interno);
+    }
 
   }
   
