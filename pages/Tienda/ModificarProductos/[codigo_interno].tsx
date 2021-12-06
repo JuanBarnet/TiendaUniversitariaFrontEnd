@@ -5,13 +5,12 @@ import router, {useRouter} from 'next/router';
 import { getIdentificacion } from "../../../api/producto";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Swal from 'sweetalert2';
-import { GetStaticPaths } from 'next'
 
 const ModificarProducto = () => {
 
   return (
     <> 
-      <FormModificarProductos />  
+      <FormModificarProductos />
     </>
   );
 };
@@ -27,12 +26,12 @@ export async function getStaticProps() {
   };
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const res = await getIdentificacion();
 
   const paths = res.productos.map((producto:any) =>{
     return{
-      params: {codigo_interno: producto.toString()}
+      params: {codigo_interno: producto.codigo_interno.toString()}
     }
   })
 
@@ -40,4 +39,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths,
     fallback: false
   }
-} 
+}

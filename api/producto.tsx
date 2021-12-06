@@ -18,7 +18,7 @@ export const getCategory= async(categoria:string)=> {
 }
 
 export const getIdentificacion= async()=> {
-   const url= `${API_PATH}/identificacion-productos/`;
+   const url= `${API_PATH}/productos2`;
    const params= {
       method: "GET",
       headers: {

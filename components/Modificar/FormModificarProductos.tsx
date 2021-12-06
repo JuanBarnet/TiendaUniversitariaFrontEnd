@@ -41,6 +41,8 @@ function useWindowDimensions() {
 export const FormModificarProductos = (): JSX.Element => {
   const Router = useRouter();
 
+  const [estado, setEstado] = useState(true);
+
   const initialValues: FormValues = {
     nombre: "",
     precio: "",
@@ -135,6 +137,7 @@ export const FormModificarProductos = (): JSX.Element => {
 
   return (
     <>
+    { router.query.codigo_interno === codigo_interno &&
       <div className="container-fluid" id="contenedor" style={(width > limite)? (height > 850)? {height: height - 100, display:'flex', alignItems:'center'}: {height: 750, display:'flex', alignItems:'center'} : {} }>
         <section className="jumbotron" id={(width > limite)? "register2" : "register2_r2"} >
           <div className="col" id="columna">
@@ -267,6 +270,12 @@ export const FormModificarProductos = (): JSX.Element => {
           </div>         
         </section>      
       </div>
+    }
+    { router.query.codigo_interno != codigo_interno &&
+      <div>
+        Hola
+      </div>
+    }
     </>
   );
 };
