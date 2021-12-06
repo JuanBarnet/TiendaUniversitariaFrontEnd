@@ -18,8 +18,22 @@ const ModificarProducto = () => {
 export default ModificarProducto;
 
 export async function getStaticProps() {
+  const res = await getIdentificacion();
+  const paths = res.productos.map((producto:any) =>{
+    return{
+      params: {codigo_interno: producto.toString()}
+    }
+  })
+
+  if (!paths) {
+    return {
+       notFound: true,
+    }
+ }
+
   return {
      props: {
+      paths,
         protected: true,
         permissions: ["administrador","vendedor"]
      }
