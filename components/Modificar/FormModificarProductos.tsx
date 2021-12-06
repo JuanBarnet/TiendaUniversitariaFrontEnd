@@ -1,5 +1,4 @@
 import React, { useState,useEffect } from "react";
-import router from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -40,6 +39,8 @@ function useWindowDimensions() {
 }
 
 export const FormModificarProductos = (): JSX.Element => {
+  const Router = useRouter();
+
   const initialValues: FormValues = {
     nombre: "",
     precio: "",
@@ -64,7 +65,7 @@ export const FormModificarProductos = (): JSX.Element => {
             icon: 'success'
           })
           .then(function() {
-            window.location.href = "/Tienda/ListaProductos";
+            Router.push("/Tienda/ListaProductos");
         });
   
         } else {
@@ -188,7 +189,7 @@ export const FormModificarProductos = (): JSX.Element => {
                     </div>
                   </div>
                 </div>
-                <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col2"} style={width>limite?{height: '100px'}:{height: '100px'}}>
+                <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col"} style={width>limite?{height: '100px'}:{height: '200px'}}>
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>     
                     <div className="col-12">
                       <label htmlFor="descripcion" id="text">Descripción:</label>
@@ -198,26 +199,26 @@ export const FormModificarProductos = (): JSX.Element => {
                   <div id={(width > limite)? "register_product" : "register_product_responsive"}  style={width>limite?{}:{height: '100px'}}>
                     <div className="col-12">
                     <label id="text">Rebajar/Aumentar stock:</label>
-                    <select className="form-control rounded-pill" id="exampleFormControlSelect1" onChange={(e) => {handleSelect(((e.target).value));}} >
-                        <option selected>Seleccione una opción</option>
+                    <select className="form-control rounded-pill" id="exampleFormControlSelect1" onChange={(e) => {handleSelect(((e.target).value));}}>
+                        <option value="0">Seleccione una opción</option>
                         <option value="1">Rebajar por merma</option>
                         <option value="2">Aumentar cantidad</option>
                     </select>
                     </div>
                   </div>
                 </div>
-                <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col2"} style={width>limite?{height: '100px'}:{height: '200px'}}>
-                  <div id={(width > limite)? "register_product" : "register_product_responsive"}>     
+                <div className={(width > limite)? "row" : "col"} id={(width > limite)? "fila" : "col2"} style={width>limite?{height: '100px'}:{height: '100px'}}>
+                  <div id={(width > limite)? "register_product" : "register_product_responsive"} style={width>limite?{}:{height: "0px"}}>     
                     <div className="col-12">
                     </div>
                   </div>
-                  <div id={(width > limite)? "register_product" : "register_product_responsive"} >
+                  <div id={(width > limite)? "register_product" : "register_product_responsive"}>
                     <div className="col-12">
                       {select != "1" && select != "2" &&
-                        <p></p>
+                        <p style={{height: "100px"}}></p>
                       }
                       {select === "1"  &&
-                        <div className="col-12">
+                        <div className="col-12" style={{height: "100px"}}>
                           <label htmlFor="rebajaMerma" id="text">Ingrese la cantidad por rebajar:</label>
                           <input
                             className="form-control rounded-pill"
@@ -236,7 +237,7 @@ export const FormModificarProductos = (): JSX.Element => {
                         
                       }
                       {select === "2"  &&
-                        <div className="col-12">
+                        <div className="col-12" style={{height: "100px"}}>
                         <label htmlFor="aumento" id="text">Ingrese la cantidad por aumentar:</label>
                         <input
                             className="form-control rounded-pill"

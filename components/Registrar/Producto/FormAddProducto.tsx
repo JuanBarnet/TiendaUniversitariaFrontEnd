@@ -1,11 +1,11 @@
 import React from "react";
-import router from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import validationSchema from "./validationSchema";
 import { registerProductAPI } from "../../../api/producto";
 import Swal from 'sweetalert2'
+import { useRouter } from "next/router";
 
 interface FormValues {
   nombre: string;
@@ -37,6 +37,8 @@ function useWindowDimensions() {
 }
 
 export const FormAddProducto = (): JSX.Element => {
+  const Router = useRouter();
+
   const initialValues: FormValues = {
     nombre: "",
     precio: "",
@@ -59,7 +61,7 @@ export const FormAddProducto = (): JSX.Element => {
           icon: 'success'
         })
         .then(function() {
-          window.location.href = "/Tienda/ListaProductos";
+          Router.push("/Tienda/ListaProductos");
       });
 
       } else {
@@ -146,7 +148,7 @@ export const FormAddProducto = (): JSX.Element => {
                     <div className="col-12">
                       <label id="text">Categoría:</label>
                       <Field as="select" name="categoria" className="form-control rounded-pill" placeholder="Seleccione un rol">
-                        <option selected>Seleccione una categoría</option>
+                        <option value="n">Seleccione una categoría</option>
                         <option value="001">Vestuario</option>
                         <option value="002">Artículos de librería</option>
                         <option value="003">Regalos institucionales</option>
